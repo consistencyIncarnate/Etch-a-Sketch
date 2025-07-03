@@ -1,1 +1,1 @@
-# Etch-a-Sketch
+This project is about creating a sketching webpage using the skills I acquired so far but also working on my google researching skills for the things I need to get it done that I haven't learned on TOP yet. 
