@@ -1,6 +1,24 @@
 body {
     padding: 0;
     margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    background-color: red;
+}
+
+#controlContainer {
+    display: flex;
+    height: 540px;
+    width: 270px;
+    border: solid 3px black;
+    background-color: white;
+    justify-content: center;
+    align-content: space-around;
+}
+
+.sliderDisplay {
+    text-align: center;
 }
 
 #container {
@@ -9,6 +27,7 @@ body {
     border: solid 3px black;
     width: 540px;
     height: 540px;
+    background-color: white;
 }
 
 .gridDiv {
