@@ -1,24 +1,44 @@
+html {
+    height: 100%;
+}
+
 body {
     padding: 0;
     margin: 0;
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 50px;
-    background-color: red;
+    background-color: gray;
+    min-height: 100%;
 }
 
 #controlContainer {
     display: flex;
+    flex-direction: column;
     height: 540px;
     width: 270px;
     border: solid 3px black;
     background-color: white;
     justify-content: center;
-    align-content: space-around;
+    align-content: center;
 }
 
 .sliderDisplay {
     text-align: center;
+}
+
+#sliderContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gridBtnContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
 #container {
