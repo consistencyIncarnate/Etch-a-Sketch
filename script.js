@@ -3,6 +3,7 @@ const sliderInput = document.getElementById("gridSize");
 const sliderOutput = document.querySelector(".sliderDisplay");
 const tglGridLinesBtn = document.getElementById("tglGridLines");
 const clearGridBtn = document.getElementById("clearGrid");
+let isGridOn = true;
 // Create initial grid
 for(let i = 0; i < 16*16; i++){
     const gridDiv = document.createElement("div");
@@ -44,6 +45,7 @@ function updateGridSize(){
         gridContainer.appendChild(gridDiv);
     };
     drawOnMouseHold();
+    toggleGridLines();
 };
 // Clear container from grid divs and create new grid with slider selected size
 sliderInput.addEventListener("input", () => {
@@ -51,40 +53,24 @@ sliderInput.addEventListener("input", () => {
     updateGridSize();
 });
 
-/*
-
-tglGridLinesBtn.addEventListener("click", () => {
+function toggleGridLines() {
     const gridDiv = document.querySelectorAll(".gridDiv");
-    gridDiv.forEach((n) => {
-        n.style.border = "none";
-    });
-});
-
-*/
-
-function tglGridLines(){
-    const gridDiv = document.querySelectorAll(".gridDiv");
-    let isGridOn = undefined;
-
-    tglGridLinesBtn.addEventListener("click", () => {
-        isGridOn = false;
-        if(!isGridOn) {
+    tglGridLinesBtn.onclick = () => {
+        if(isGridOn) {
+            isGridOn = false;
             gridDiv.forEach((n) => {
                 n.style.border = "none";
             });
-            tglGridLinesBtn.addEventListener("click", () => {
-                isGridOn = true;
-                if(isGridOn) {
-                    gridDiv.forEach((n) => {
-                        n.style.border = "solid black 0.5px";
-                    });
-                };
+        } else {
+            isGridOn = true;
+            gridDiv.forEach((n) => {
+                n.style.border = "solid 0.5px black";
             });
-        };
-    });    
+        }
+    };
 };
 
-tglGridLines();
+toggleGridLines();
 
 clearGridBtn.addEventListener("click", () => {
     const gridDiv = document.querySelectorAll(".gridDiv");
