@@ -20,7 +20,7 @@ body {
     width: 270px;
     border: solid 3px black;
     background-color: white;
-    justify-content: center;
+    justify-content: space-evenly;
     align-content: center;
 }
 
@@ -41,6 +41,13 @@ body {
     gap: 10px;
 }
 
+.drawBtnContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
 #container {
     display: grid;
     grid-template-columns: repeat(16, 1fr);
@@ -53,4 +60,5 @@ body {
 .gridDiv {
     aspect-ratio: 1;
     border: solid 0.5px black;
+    user-select: none;
 }

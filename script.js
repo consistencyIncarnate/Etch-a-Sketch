@@ -4,6 +4,7 @@ const sliderOutput = document.querySelector(".sliderDisplay");
 const tglGridLinesBtn = document.getElementById("tglGridLines");
 const clearGridBtn = document.getElementById("clearGrid");
 let isGridOn = true;
+const clrChangeBtn = document.getElementById("colorPicker");
 // Create initial grid
 for(let i = 0; i < 16*16; i++){
     const gridDiv = document.createElement("div");
@@ -29,7 +30,7 @@ function drawOnMouseHold() {
     gridDiv.forEach((n) => {
         n.addEventListener("mouseover", (e) => {
             if(isDrawing){
-                e.currentTarget.style.backgroundColor = "black";
+                e.currentTarget.style.backgroundColor = clrChangeBtn.value;
             };
         });
     });
@@ -46,6 +47,7 @@ function updateGridSize(){
     };
     drawOnMouseHold();
     toggleGridLines();
+    colorSelection();
 };
 // Clear container from grid divs and create new grid with slider selected size
 sliderInput.addEventListener("input", () => {
@@ -78,3 +80,26 @@ clearGridBtn.addEventListener("click", () => {
         n.style.backgroundColor = "white";
     });
 });
+
+function colorSelection() {
+    clrChangeBtn.onchange = () => {
+        let isDrawing = undefined;
+        const gridDiv = document.querySelectorAll(".gridDiv");
+
+        gridContainer.addEventListener("mouseup", () => {
+            isDrawing = false;
+        });
+        gridContainer.addEventListener("mousedown", () => {
+            isDrawing = true;
+        });
+        gridDiv.forEach((n) => {
+            n.addEventListener("mouseover", (e) => {
+                if(isDrawing){
+                e.currentTarget.style.backgroundColor = clrChangeBtn.value;
+                };
+            });
+        });
+    };
+};
+
+colorSelection();
