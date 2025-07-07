@@ -11,6 +11,9 @@ for(let i = 0; i < 16*16; i++){
     gridDiv.setAttribute("class", "gridDiv");
     gridContainer.appendChild(gridDiv);
 };
+// Initial values
+sliderInput.value = 16;
+clrChangeBtn.value = "#000000"
 
 sliderOutput.textContent = `Grid size: ${sliderInput.value} x ${sliderInput.value}`;
 sliderInput.oninput = () => {
