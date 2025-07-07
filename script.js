@@ -5,6 +5,9 @@ const tglGridLinesBtn = document.getElementById("tglGridLines");
 const clearGridBtn = document.getElementById("clearGrid");
 let isGridOn = true;
 const clrChangeBtn = document.getElementById("colorPicker");
+const rnbwBtn = document.querySelector(".tglRnbwMd");
+let isRnbwOn = false;
+const colorArr = ["#FF0000","#FFA500","#FFFF00","#008000","#0000FF","#560591","#7F00FF"];
 // Create initial grid
 for(let i = 0; i < 16*16; i++){
     const gridDiv = document.createElement("div");
@@ -58,6 +61,7 @@ function updateGridSize(){
     };
     toggleGridLines();
     colorSelection();
+    keepRainbowOnGridChange();
 };
 // Clear container from grid divs and create new grid with slider selected size
 sliderInput.addEventListener("input", () => {
@@ -113,3 +117,55 @@ function colorSelection() {
 };
 
 colorSelection();
+
+function tglRnbw() {   
+    rnbwBtn.onclick = () => {
+        if(isRnbwOn) {
+            isRnbwOn = false;
+            drawOnMouseHold();
+        } else {
+            isRnbwOn = true;
+            let isDrawing = undefined;
+            const gridDiv = document.querySelectorAll(".gridDiv");
+
+            gridContainer.addEventListener("mouseup", () => {
+                isDrawing = false;
+            });
+            gridContainer.addEventListener("mousedown", () => {
+                isDrawing = true;
+            });
+            gridDiv.forEach((n) => {
+                n.addEventListener("mouseover", (e) => {
+                    if(isDrawing){
+                        e.currentTarget.style.backgroundColor = colorArr[Math.floor(Math.random() * 6)];
+                    };
+                });
+            });
+        };
+    };
+};
+
+tglRnbw();
+
+function keepRainbowOnGridChange() {
+    if(isRnbwOn) {
+        let isDrawing = undefined;
+        const gridDiv = document.querySelectorAll(".gridDiv");
+
+        gridContainer.addEventListener("mouseup", () => {
+            isDrawing = false;
+        });
+        gridContainer.addEventListener("mousedown", () => {
+            isDrawing = true;
+        });
+        gridDiv.forEach((n) => {
+            n.addEventListener("mouseover", (e) => {
+                if(isDrawing){
+                    e.currentTarget.style.backgroundColor = colorArr[Math.floor(Math.random() * 6)];
+                };
+            });
+        });
+    } else {
+        drawOnMouseHold();   
+    };
+};
