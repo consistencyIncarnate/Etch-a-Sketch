@@ -49,6 +49,13 @@ function updateGridSize(){
         gridContainer.appendChild(gridDiv);
     };
     drawOnMouseHold();
+    // Checks if grid lines are off so on grid size change it does not show them
+    if(!isGridOn) {
+        const gridDiv = document.querySelectorAll(".gridDiv");
+            gridDiv.forEach((n) => {
+                n.style.border = "none";
+            });
+    };
     toggleGridLines();
     colorSelection();
 };
