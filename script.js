@@ -97,22 +97,41 @@ clearGridBtn.addEventListener("click", () => {
 
 function colorSelection() {
     clrChangeBtn.onchange = () => {
-        let isDrawing = undefined;
-        const gridDiv = document.querySelectorAll(".gridDiv");
+        if(isRnbwOn) {
+            let isDrawing = undefined;
+            const gridDiv = document.querySelectorAll(".gridDiv");
 
-        gridContainer.addEventListener("mouseup", () => {
-            isDrawing = false;
-        });
-        gridContainer.addEventListener("mousedown", () => {
-            isDrawing = true;
-        });
-        gridDiv.forEach((n) => {
-            n.addEventListener("mouseover", (e) => {
-                if(isDrawing){
-                e.currentTarget.style.backgroundColor = clrChangeBtn.value;
-                };
+            gridContainer.addEventListener("mouseup", () => {
+                isDrawing = false;
             });
-        });
+            gridContainer.addEventListener("mousedown", () => {
+                isDrawing = true;
+            });
+            gridDiv.forEach((n) => {
+                n.addEventListener("mouseover", (e) => {
+                    if(isDrawing){
+                        e.currentTarget.style.backgroundColor = colorArr[Math.floor(Math.random() * 6)];
+                    };
+                });
+            });
+        } else {
+            let isDrawing = undefined;
+            const gridDiv = document.querySelectorAll(".gridDiv");
+
+            gridContainer.addEventListener("mouseup", () => {
+                isDrawing = false;
+            });
+            gridContainer.addEventListener("mousedown", () => {
+                isDrawing = true;
+            });
+            gridDiv.forEach((n) => {
+                n.addEventListener("mouseover", (e) => {
+                    if(isDrawing){
+                    e.currentTarget.style.backgroundColor = clrChangeBtn.value;
+                    };
+                });
+            });
+        };
     };
 };
 
