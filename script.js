@@ -8,6 +8,8 @@ const clrChangeBtn = document.getElementById("colorPicker");
 const rnbwBtn = document.querySelector(".tglRnbwMd");
 let isRnbwOn = false;
 const colorArr = ["#FF0000","#FFA500","#FFFF00","#008000","#0000FF","#560591","#7F00FF"];
+const eraseBtn = document.querySelector(".tglEraser");
+let isEraserOn = false;
 // Create initial grid
 for(let i = 0; i < 16*16; i++){
     const gridDiv = document.createElement("div");
@@ -62,6 +64,7 @@ function updateGridSize(){
     toggleGridLines();
     colorSelection();
     keepRainbowOnGridChange();
+    isEraserOn = false;
 };
 // Clear container from grid divs and create new grid with slider selected size
 sliderInput.addEventListener("input", () => {
@@ -115,6 +118,7 @@ function colorSelection() {
                 });
             });
         } else {
+            isEraserOn = false;
             let isDrawing = undefined;
             const gridDiv = document.querySelectorAll(".gridDiv");
 
@@ -144,6 +148,7 @@ function tglRnbw() {
             drawOnMouseHold();
         } else {
             isRnbwOn = true;
+            isEraserOn = false;
             let isDrawing = undefined;
             const gridDiv = document.querySelectorAll(".gridDiv");
 
@@ -188,3 +193,33 @@ function keepRainbowOnGridChange() {
         drawOnMouseHold();   
     };
 };
+
+function toggleEraser() {
+    eraseBtn.onclick = () => {
+        if(isEraserOn) {
+            isEraserOn = false;
+            drawOnMouseHold();
+        } else {
+            isEraserOn = true;
+            isRnbwOn = false;
+            let isDrawing = undefined;
+            const gridDiv = document.querySelectorAll(".gridDiv");
+
+            gridContainer.addEventListener("mouseup", () => {
+                isDrawing = false;
+            });
+            gridContainer.addEventListener("mousedown", () => {
+                isDrawing = true;
+            });
+            gridDiv.forEach((n) => {
+                n.addEventListener("mouseover", (e) => {
+                    if(isDrawing){
+                        e.currentTarget.style.backgroundColor = "white";
+                    };
+                });
+            });
+        };
+    };
+};
+
+toggleEraser();
