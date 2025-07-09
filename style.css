@@ -48,6 +48,13 @@ body {
     align-items: center;
 }
 
+.printContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
 #container {
     display: grid;
     grid-template-columns: repeat(16, 1fr);
@@ -61,4 +68,18 @@ body {
     aspect-ratio: 1;
     border: solid 0.5px black;
     user-select: none;
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    .printable, .printable * {
+        visibility: visible;
+    }
+    .printable {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 }

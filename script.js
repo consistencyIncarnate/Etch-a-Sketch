@@ -10,6 +10,7 @@ let isRnbwOn = false;
 const colorArr = ["#FF0000","#FFA500","#FFFF00","#008000","#0000FF","#560591","#7F00FF"];
 const eraseBtn = document.querySelector(".tglEraser");
 let isEraserOn = false;
+const printButton = document.getElementById("printBtn");
 // Create initial grid
 for(let i = 0; i < 16*16; i++){
     const gridDiv = document.createElement("div");
@@ -223,3 +224,7 @@ function toggleEraser() {
 };
 
 toggleEraser();
+
+printButton.onclick = () => {
+    window.print();
+};
