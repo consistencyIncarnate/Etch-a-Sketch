@@ -1,16 +1,46 @@
 html {
     height: 100%;
+    font-family: "Roboto", sans-serif;
 }
 
 body {
     padding: 0;
     margin: 0;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+    min-height: 100%;
+    text-align: center;
+    gap: 50px;
+}
+
+.doodlesTitle {
+    margin: 0;
+    padding: 0;
+    background-color: lightgray;
+    border: solid 3px lightgray;
+    border-radius: 1%;
+    width: 865px;
+}
+
+.rubik-doodle-shadow-regular {
+    font-family: "Rubik Doodle Shadow", system-ui;
+    font-weight: 400;
+    font-size: 64px;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    color: green;
+}
+
+
+.mainContainer {
+    display: flex;
     justify-content: center;
     align-items: center;
     gap: 50px;
-    background-color: gray;
-    min-height: 100%;
 }
 
 #controlContainer {
@@ -18,14 +48,31 @@ body {
     flex-direction: column;
     height: 540px;
     width: 270px;
-    border: solid 3px black;
-    background-color: white;
+    border: solid 3px lightgray;
+    border-radius: 1%;
+    background-color: lightgray;
     justify-content: space-evenly;
-    align-content: center;
+    align-items: center;
+}
+
+#controlContainer * {
+    color: green;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#controlContainer button {
+    width: 200px;
+    border: solid 1px green;
+    border-radius: 1%;
+    margin: 0;
+    padding: 5px 0;
+    background-color: lightgray;
 }
 
 .sliderDisplay {
     text-align: center;
+    margin: 0;
 }
 
 #sliderContainer {
@@ -38,7 +85,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
+}
+
+.gridBtnContainer #tglGridLines {
+    background-color: green;
+    color: lightgray;
 }
 
 .drawBtnContainer {
@@ -46,6 +98,15 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    gap: 5px;
+}
+
+#colorPicker {
+    width: 200px;
+    height: 35px;
+    padding: 3px;
+    margin: 0;
+    border: solid 1px green;
 }
 
 .printContainer {
@@ -55,10 +116,21 @@ body {
     text-align: center;
 }
 
+.noteDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 200px;
+    border: solid 1px black;
+    border-radius: 1%;
+}
+
 #container {
     display: grid;
     grid-template-columns: repeat(16, 1fr);
-    border: solid 3px black;
+    border: solid 3px lightgray;
+    border-radius: 1%;
     width: 540px;
     height: 540px;
     background-color: white;

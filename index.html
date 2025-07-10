@@ -6,29 +6,41 @@
     <title>Doodles</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="controlContainer">
-        <div id="sliderContainer">
-            <p class="sliderDisplay"></p>
-            <input type="range" min="16" max="60" value="16" class="slider" id="gridSize">
-        </div>
-        <div class="gridBtnContainer">
-            <button id="tglGridLines">Toggle grid lines</button>
-            <button id="clearGrid">Clear</button>
-        </div>
-        <div class="drawBtnContainer">
-            <button class="tglEraser">Eraser</button>
-            <input id="colorPicker" type="color">
-            <button class="tglRnbwMd">Rainbow</button>
-        </div>
-        <div class="printContainer">
-            <button id="printBtn">Save / Print</button>
-            <p>Note: Background color printing is not enabled by default. Check it in your browser print settings.</p>
-        </div>
+    <div class="doodlesTitle">
+        <h1 class="rubik-doodle-shadow-regular">Doodles</h1>
     </div>
-    <div id="container" class="printable">
+    <div class="mainContainer">
+        <div id="controlContainer">
+            <div id="sliderContainer">
+                <p class="sliderDisplay"></p>
+                <input type="range" min="16" max="96" value="16" class="slider" id="gridSize">
+            </div>
+            <div class="gridBtnContainer">
+                <button id="tglGridLines">Toggle grid lines</button>
+                <button id="clearGrid">Clear</button>
+            </div>
+            <div class="drawBtnContainer">
+                <button class="tglEraser">Eraser</button>
+                <input id="colorPicker" type="color">
+                <button class="tglRnbwMd">Rainbow</button>
+            </div>
+            <div class="printContainer">
+                <button id="printBtn">Save / Print</button>
+            </div>
+            <div class="noteDiv">
+                <p>Note: Background color printing is not enabled by default. Check it in your browser print settings.</p>
+            </div>
+        </div>
+        <div id="container" class="printable">
 
+        </div>
     </div>
 </body>
 </html>

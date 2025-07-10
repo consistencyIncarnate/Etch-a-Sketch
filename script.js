@@ -36,6 +36,9 @@ function drawOnMouseHold() {
     gridContainer.addEventListener("mousedown", () => {
         isDrawing = true;
     });
+    gridContainer.addEventListener("mouseleave", () => {
+        isDrawing = false;
+    });
     gridDiv.forEach((n) => {
         n.addEventListener("mouseover", (e) => {
             if(isDrawing){
@@ -66,6 +69,8 @@ function updateGridSize(){
     colorSelection();
     keepRainbowOnGridChange();
     isEraserOn = false;
+    eraseBtn.style.color = "green";
+    eraseBtn.style.backgroundColor = "lightgray";
 };
 // Clear container from grid divs and create new grid with slider selected size
 sliderInput.addEventListener("input", () => {
@@ -78,11 +83,15 @@ function toggleGridLines() {
     tglGridLinesBtn.onclick = () => {
         if(isGridOn) {
             isGridOn = false;
+            tglGridLinesBtn.style.color = "green";
+            tglGridLinesBtn.style.backgroundColor = "lightgray";
             gridDiv.forEach((n) => {
                 n.style.border = "none";
             });
         } else {
             isGridOn = true;
+            tglGridLinesBtn.style.color = "lightgray";
+            tglGridLinesBtn.style.backgroundColor = "green";
             gridDiv.forEach((n) => {
                 n.style.border = "solid 0.5px black";
             });
@@ -98,6 +107,19 @@ clearGridBtn.addEventListener("click", () => {
         n.style.backgroundColor = "white";
     });
 });
+
+clearGridBtn.onmousedown = () => {
+    clearGridBtn.style.color = "lightgray";
+    clearGridBtn.style.backgroundColor = "green";
+    clearGridBtn.onmouseup = () => {
+        clearGridBtn.style.color = "green";
+        clearGridBtn.style.backgroundColor = "lightgray";
+    };
+    clearGridBtn.onmouseout = () => {
+        clearGridBtn.style.color = "green";
+        clearGridBtn.style.backgroundColor = "lightgray";
+    };
+};
 
 function colorSelection() {
     clrChangeBtn.onchange = () => {
@@ -146,10 +168,16 @@ function tglRnbw() {
     rnbwBtn.onclick = () => {
         if(isRnbwOn) {
             isRnbwOn = false;
+            rnbwBtn.style.color = "green";
+            rnbwBtn.style.backgroundColor = "lightgray";
             drawOnMouseHold();
         } else {
             isRnbwOn = true;
             isEraserOn = false;
+            rnbwBtn.style.color = "lightgray";
+            rnbwBtn.style.backgroundColor = "green";
+            eraseBtn.style.color = "green";
+            eraseBtn.style.backgroundColor = "lightgray";
             let isDrawing = undefined;
             const gridDiv = document.querySelectorAll(".gridDiv");
 
@@ -158,6 +186,9 @@ function tglRnbw() {
             });
             gridContainer.addEventListener("mousedown", () => {
                 isDrawing = true;
+            });
+            gridContainer.addEventListener("mouseleave", () => {
+                isDrawing = false;
             });
             gridDiv.forEach((n) => {
                 n.addEventListener("mouseover", (e) => {
@@ -199,10 +230,16 @@ function toggleEraser() {
     eraseBtn.onclick = () => {
         if(isEraserOn) {
             isEraserOn = false;
+            eraseBtn.style.color = "green";
+            eraseBtn.style.backgroundColor = "lightgray";
             drawOnMouseHold();
         } else {
             isEraserOn = true;
             isRnbwOn = false;
+            eraseBtn.style.color = "lightgray";
+            eraseBtn.style.backgroundColor = "green";
+            rnbwBtn.style.color = "green";
+            rnbwBtn.style.backgroundColor = "lightgray";
             let isDrawing = undefined;
             const gridDiv = document.querySelectorAll(".gridDiv");
 
@@ -211,6 +248,9 @@ function toggleEraser() {
             });
             gridContainer.addEventListener("mousedown", () => {
                 isDrawing = true;
+            });
+            gridContainer.addEventListener("mouseleave", () => {
+                isDrawing = false;
             });
             gridDiv.forEach((n) => {
                 n.addEventListener("mouseover", (e) => {
@@ -227,4 +267,17 @@ toggleEraser();
 
 printButton.onclick = () => {
     window.print();
+};
+
+printButton.onmousedown = () => {
+    printButton.style.color = "lightgray";
+    printButton.style.backgroundColor = "green";
+    printButton.onmouseup = () => {
+        printButton.style.color = "green";
+        printButton.style.backgroundColor = "lightgray";
+    };
+    printButton.onmouseout = () => {
+        printButton.style.color = "green";
+        printButton.style.backgroundColor = "lightgray";
+    };
 };
