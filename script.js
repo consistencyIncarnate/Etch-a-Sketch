@@ -43,17 +43,11 @@ function drawOnMouseHold() {
         n.onclick = (e) => {
             e.currentTarget.style.backgroundColor = clrChangeBtn.value;
         };
-        n.ontouchstart = (e) => {
-            e.currentTarget.style.backgroundColor = clrChangeBtn.value;
-        };
         n.addEventListener("mouseover", (e) => {
             if(isDrawing){
                 e.currentTarget.style.backgroundColor = clrChangeBtn.value;
             };
         });
-        n.ontouchmove = (e) => {
-            e.currentTarget.style.backgroundColor = clrChangeBtn.value;
-        };
     });
 };
 
