@@ -40,6 +40,9 @@ function drawOnMouseHold() {
         isDrawing = false;
     });
     gridDiv.forEach((n) => {
+        n.onclick = (e) => {
+            e.currentTarget.style.backgroundColor = clrChangeBtn.value;
+        };
         n.addEventListener("mouseover", (e) => {
             if(isDrawing){
                 e.currentTarget.style.backgroundColor = clrChangeBtn.value;
@@ -134,6 +137,9 @@ function colorSelection() {
                 isDrawing = true;
             });
             gridDiv.forEach((n) => {
+                n.onclick = (e) => {
+                    e.currentTarget.style.backgroundColor = colorArr[Math.floor(Math.random() * 6)];
+                };
                 n.addEventListener("mouseover", (e) => {
                     if(isDrawing){
                         e.currentTarget.style.backgroundColor = colorArr[Math.floor(Math.random() * 6)];
@@ -152,6 +158,9 @@ function colorSelection() {
                 isDrawing = true;
             });
             gridDiv.forEach((n) => {
+                n.onclick = (e) => {
+                    e.currentTarget.style.backgroundColor = clrChangeBtn.value;
+                };
                 n.addEventListener("mouseover", (e) => {
                     if(isDrawing){
                     e.currentTarget.style.backgroundColor = clrChangeBtn.value;
@@ -191,6 +200,9 @@ function tglRnbw() {
                 isDrawing = false;
             });
             gridDiv.forEach((n) => {
+                n.onclick = (e) => {
+                    e.currentTarget.style.backgroundColor = colorArr[Math.floor(Math.random() * 6)];
+                };
                 n.addEventListener("mouseover", (e) => {
                     if(isDrawing){
                         e.currentTarget.style.backgroundColor = colorArr[Math.floor(Math.random() * 6)];
@@ -214,7 +226,13 @@ function keepRainbowOnGridChange() {
         gridContainer.addEventListener("mousedown", () => {
             isDrawing = true;
         });
+        gridContainer.addEventListener("mouseleave", () => {
+            isDrawing = false;
+        });
         gridDiv.forEach((n) => {
+            n.onclick = (e) => {
+                e.currentTarget.style.backgroundColor = colorArr[Math.floor(Math.random() * 6)];
+            };
             n.addEventListener("mouseover", (e) => {
                 if(isDrawing){
                     e.currentTarget.style.backgroundColor = colorArr[Math.floor(Math.random() * 6)];
@@ -253,6 +271,9 @@ function toggleEraser() {
                 isDrawing = false;
             });
             gridDiv.forEach((n) => {
+                n.onclick = (e) => {
+                    e.currentTarget.style.backgroundColor = "white";
+                };
                 n.addEventListener("mouseover", (e) => {
                     if(isDrawing){
                         e.currentTarget.style.backgroundColor = "white";
