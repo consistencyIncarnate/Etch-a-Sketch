@@ -107,7 +107,7 @@ body {
     padding: 3px;
     margin: 0;
     border: solid 1px green;
-    border-radius: 0;
+    border-radius: 0%;
 }
 
 .printContainer {
@@ -135,6 +135,7 @@ body {
     width: 540px;
     height: 540px;
     background-color: white;
+    user-select: none;
 }
 
 .gridDiv {

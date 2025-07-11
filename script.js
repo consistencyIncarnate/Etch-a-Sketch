@@ -45,9 +45,6 @@ function drawOnMouseHold() {
     gridContainer.addEventListener("mouseleave", () => {
         isDrawing = false;
     });
-    gridContainer.addEventListener("touchcancel", () => {
-        isDrawing = false;
-    });
     gridDiv.forEach((n) => {
         n.onclick = (e) => {
             e.currentTarget.style.backgroundColor = clrChangeBtn.value;
