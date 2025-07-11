@@ -33,17 +33,34 @@ function drawOnMouseHold() {
     gridContainer.addEventListener("mouseup", () => {
         isDrawing = false;
     });
+    gridContainer.addEventListener("touchend", () => {
+        isDrawing = false;
+    });
     gridContainer.addEventListener("mousedown", () => {
         isDrawing = true;
     });
+    gridContainer.addEventListener("touchstart", () => {
+        isDrawing = true;
+    });
     gridContainer.addEventListener("mouseleave", () => {
+        isDrawing = false;
+    });
+    gridContainer.addEventListener("touchcancel", () => {
         isDrawing = false;
     });
     gridDiv.forEach((n) => {
         n.onclick = (e) => {
             e.currentTarget.style.backgroundColor = clrChangeBtn.value;
         };
+        n.ontouchstart = (e) => {
+            e.currentTarget.style.backgroundColor = clrChangeBtn.value;
+        };
         n.addEventListener("mouseover", (e) => {
+            if(isDrawing){
+                e.currentTarget.style.backgroundColor = clrChangeBtn.value;
+            };
+        });
+        n.addEventListener("touchmove", (e) => {
             if(isDrawing){
                 e.currentTarget.style.backgroundColor = clrChangeBtn.value;
             };

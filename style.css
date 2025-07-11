@@ -107,6 +107,7 @@ body {
     padding: 3px;
     margin: 0;
     border: solid 1px green;
+    border-radius: 0;
 }
 
 .printContainer {
