@@ -135,7 +135,6 @@ body {
     width: 540px;
     height: 540px;
     background-color: white;
-    user-select: none;
 }
 
 .gridDiv {
